@@ -69,5 +69,29 @@ class Database{
     public function getConnection(){
         return $this->conn;
     }
+    function updateedit($table, $col, $oldNIM) {
+        $status = false;
+        $query = "UPDATE $table SET $col WHERE nim = $oldNIM";
+        print_r($query);
+        $result = mysqli_query($this->conn, $query);
+        if ($result) {
+            $affectedRows = mysqli_affected_rows($this->conn);
+            if ($affectedRows > 0) {
+                $status = true;
+            }
+        } else {
+            $status = false;
+        }
+        return $status;
+    }
+    
+    public function edit($table, $where) {
+        // $status=false;
+        $query = "SELECT * FROM $table WHERE $where";
+        $result = mysqli_query($this->conn, $query);
+        $data = mysqli_fetch_array($result);
+        return $data;
+    }
+    
 }
 ?>

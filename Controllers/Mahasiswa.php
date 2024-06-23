@@ -5,8 +5,11 @@ class Mahasiswa {
     function __construct(){
         $this->db = new Mahasiswa_model () ;
     }
-    function index(){
+    function index($client){
         require_once 'View/login.php';
+    }
+    function handleLogin($client){
+       $this->db->handleLogin($client);
     }
     function dashboard(){
         $data = $this->db->getAllData();
@@ -26,9 +29,20 @@ class Mahasiswa {
         $this->db->tambahData($data);
     }
     function stats(){
-        require_once 'View/header.php';
+        $ti=0;
+        $si=0;
+        $data=$this->db->getAllData();
+        foreach ($data as $row) {
+            if($row['prodi']=='Teknik Informatika'){
+                $ti++;
+            }else{
+                $si++;
+            }
+        }
+            require_once 'View/header.php';
         require_once 'View/navbar.php';
-        // disini
+        // 
+        require_once 'View/stats.php';
         require_once 'View/footer.php';
     }
     function hapus(){

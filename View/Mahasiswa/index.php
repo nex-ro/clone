@@ -1,3 +1,4 @@
+<?php Notifikasi::tampilNotif()?>
 <div class="container-md p-2">
     <div class="d-flex justify-content-end">
         <a href='index.php?page=tambahData'><button class='btn btn-primary
@@ -19,7 +20,6 @@
     $i = 1;
     foreach ($data as $row) {
     echo "<tr><td>$i</td>
-
 <td>" . $row['nim'] . "</td>
 <td>" . $row['nama'] . "</td>
 <td>" . $row['prodi'] . "</td>

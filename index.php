@@ -1,12 +1,22 @@
 <?php 
     include "Controllers/Mahasiswa.php";
-    // $mhs = new Mahasiswa();
-    // $mhs ->index();
-    // $mhs ->index();
+    include "Core/Notifikasi.php";
+    require_once "Core/configGoogle.php";
+
+    if(!session_id()){
+        session_start();
+    }
     if(!isset($_GET['page'])){
+        print_r($client->createAuthUrl());
+
         $mhs = new Mahasiswa();
-        $mhs ->index();
-    }else if(isset($_GET['page']) && $_GET['page'] == "dashboard"){
+        $mhs ->index($client);
+
+    }else if(isset($_GET['page']) && $_GET['page'] == "handleLogin"){
+        $mhs = new Mahasiswa();
+        $mhs->handleLogin($client);
+    }
+    else if(isset($_GET['page']) && $_GET['page'] == "dashboard"){
         $mhs = new Mahasiswa();
         $mhs ->dashboard();
     }

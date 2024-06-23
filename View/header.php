@@ -12,10 +12,15 @@
         crossorigin="anonymous"></script>
 
     <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" rel="stylesheet" />
-
     <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <!-- sweat alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- chart  -->
+    <script src="path/to/chartjs/dist/chart.umd.js"></script>
+
+
 </head>
 <body>
   
